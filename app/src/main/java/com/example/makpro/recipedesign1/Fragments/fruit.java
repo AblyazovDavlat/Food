@@ -98,7 +98,8 @@ public class fruit extends Fragment {
                 return false;
             }
         });
-        Typeface general = Typeface.createFromAsset(getActivity().getAssets(), "Mateur.ttf");
+        Typeface general = Typeface.createFromAsset(getActivity().getAssets(), "Peace Sans Webfont.ttf");
+        Typeface general1 = Typeface.createFromAsset(getActivity().getAssets(), "Mateur.ttf");
         apple = (CheckBox) view.findViewById(R.id.appleB);
         apple.setTypeface(general);
         pear = (CheckBox) view.findViewById(R.id.pearB);
@@ -112,52 +113,52 @@ public class fruit extends Fragment {
         grape = (CheckBox) view.findViewById(R.id.grapeB);
         grape.setTypeface(general);
         apply = (Button) view.findViewById(R.id.applyF);
-        apply.setTypeface(general);
+        apply.setTypeface(general1);
         apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (apple.isChecked())
                 {
-                    staticString.str.remove("apple");
-                    staticString.str.add("apple");
+                    staticString.str.remove("101");
+                    staticString.str.add("101");
                 }
                 else
-                    staticString.str.remove("apple");
+                    staticString.str.remove("101");
                 if (pear.isChecked())
                 {
-                    staticString.str.remove("pear");
-                    staticString.str.add("pear");
+                    staticString.str.remove("104");
+                    staticString.str.add("104");
                 }
                 else
-                    staticString.str.remove("pear");
+                    staticString.str.remove("104");
                 if (orange.isChecked())
                 {
-                    staticString.str.remove("orange");
-                    staticString.str.add("orange");
+                    staticString.str.remove("103");
+                    staticString.str.add("103");
                 }
                 else
-                    staticString.str.remove("orange");
+                    staticString.str.remove("103");
                 if (ananas.isChecked())
                 {
-                    staticString.str.remove("ananas");
-                    staticString.str.add("ananas");
+                    staticString.str.remove("106");
+                    staticString.str.add("106");
                 }
                 else
-                    staticString.str.remove("ananas");
+                    staticString.str.remove("106");
                 if (banana.isChecked())
                 {
-                    staticString.str.remove("banana");
-                    staticString.str.add("banana");
+                    staticString.str.remove("102");
+                    staticString.str.add("102");
                 }
                 else
-                    staticString.str.remove("banana");
+                    staticString.str.remove("102");
                 if (grape.isChecked())
                 {
-                    staticString.str.remove("grape");
-                    staticString.str.add("grape");
+                    staticString.str.remove("105");
+                    staticString.str.add("105");
                 }
                 else
-                    staticString.str.remove("grape");
+                    staticString.str.remove("105");
                 FragmentManager fm = getFragmentManager();
                 fm.popBackStack();
                 FragmentTransaction ft = fm.beginTransaction();

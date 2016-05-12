@@ -5,6 +5,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -107,14 +108,24 @@ public class AddRecipeFragment extends Fragment implements View.OnClickListener 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_add_recipe, container, false);
+        Typeface gen1 = Typeface.createFromAsset(getActivity().getAssets(), "Peace Sans Webfont.ttf");
+        Typeface gen = Typeface.createFromAsset(getActivity().getAssets(), "Mateur.ttf");
         addIngr = (Button) view.findViewById(R.id.addIngr);
+        addIngr.setTypeface(gen);
         addTime = (Button) view.findViewById(R.id.addTime);
+        addTime.setTypeface(gen);
         addCuisine = (Button) view.findViewById(R.id.addCuisine);
+        addCuisine.setTypeface(gen);
         addCategory = (Button) view.findViewById(R.id.addCategory);
+        addCategory.setTypeface(gen);
         addMethod = (Button) view.findViewById(R.id.addMethod);
+        addMethod.setTypeface(gen);
         addDescription = (Button) view.findViewById(R.id.addDescription);
+        addDescription.setTypeface(gen);
         addCalories = (Button) view.findViewById(R.id.addCalories);
+        addCalories.setTypeface(gen);
         ADD = (Button) view.findViewById(R.id.ADD);
+        ADD.setTypeface(gen1);
         ADD.setOnClickListener(this);
         addIngr.setOnClickListener(this);
         addTime.setOnClickListener(this);
@@ -185,15 +196,16 @@ public class AddRecipeFragment extends Fragment implements View.OnClickListener 
                 cursor.moveToFirst();
                 int lastID = cursor.getInt(colRecMaxId);
                 Log.d(LOG_TAG,String.valueOf(staticString.addCategory));
+                Log.d(LOG_TAG,String.valueOf(staticString.addCaloricContent));
 
                 contentValues.put("Recipe_ID", lastID+1);
-                contentValues.put("Rec_Cuisine_ID", String.valueOf(staticString.addCuisine));
-                contentValues.put("Rec_Category_ID", String.valueOf(staticString.addCategory));
-                contentValues.put("Rec_Cooking_method_ID", String.valueOf(staticString.addCookingMethod));
-                contentValues.put("Rec_Time_ID", String.valueOf(staticString.addTime));
+                contentValues.put("Rec_Cuisine_ID", String.valueOf(staticString.addCuisine.get(0)));
+                contentValues.put("Rec_Category_ID", String.valueOf(staticString.addCategory.get(0)));
+                contentValues.put("Rec_Cooking_method_ID", String.valueOf(staticString.addCookingMethod.get(0)));
+                contentValues.put("Rec_Time_ID", String.valueOf(staticString.addTime.get(0)));
                 contentValues.put("Description_cooking_method", staticString.addDescription);
                 contentValues.put("Recipe_name", staticString.addName);
-              //  contentValues.put("Caloric_content", staticString.addCaloricContent);
+                contentValues.put("Caloric_content", staticString.addCaloricContent);
                 sqLiteDatabase.insert("Recipe",null,contentValues);
                 cursor.close();
 
